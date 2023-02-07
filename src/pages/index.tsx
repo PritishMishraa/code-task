@@ -13,12 +13,37 @@ const Home: NextPage = () => {
   const { data: session } = useSession()
   const [loader, setLoader] = useState(false)
 
+  const meta = {
+    title: 'Code Task',
+    description: `Automating LeetCoding`,
+    image: 'https://code-taskk.vercel.app/codetaskk-banner.png',
+    type: 'website',
+  };
+
   return (
     <>
       <Head>
         <title>Code Task</title>
-        <meta name="description" content="Helping people code consistensly" />
+        <meta name="description" content="Automating LeetCoding" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta property="og:url" content="https://code-taskk.vercel.app" />
+        <link rel="canonical" href="https://code-taskk.vercel.app" />
+        <meta property="og:type" content={meta.type} />
+        <meta property="og:site_name" content="Pritish Mishra" />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:image" content={meta.image} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@PritishhMishraa" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content={meta.image} />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <div className="max-w-2xl w-full mx-auto flex flex-col items-center justify-center">
