@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { type TquestionOfToday } from '../../../utils/types';
 
 const LEETCODE_API_ENDPOINT = 'https://leetcode.com/graphql';
 
@@ -21,10 +22,10 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
     }
 
     const response = await fetch(LEETCODE_API_ENDPOINT, options)
-    const questionOfToday = await response.json()
+    const questionOfToday: TquestionOfToday = await response.json() as TquestionOfToday
 
-    const title = questionOfToday.data.activeDailyCodingChallengeQuestion.question.title
-    const difficulty = questionOfToday.data.activeDailyCodingChallengeQuestion.question.difficulty
+    const title: string = questionOfToday.data.activeDailyCodingChallengeQuestion.question.title
+    const difficulty: string = questionOfToday.data.activeDailyCodingChallengeQuestion.question.difficulty
     const link = `https://leetcode.com${questionOfToday.data.activeDailyCodingChallengeQuestion.link}`
 
     res.setHeader('Cache-Control', 's-maxage=3600');

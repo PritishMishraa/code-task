@@ -1,17 +1,3 @@
-import Link from 'next/link';
-import { TExternalLink } from '../../utils/types';
-
-const ExternalLink = ({ href, children }: TExternalLink) => (
-    <a
-        className="text-gray-500 hover:text-gray-600 hover:dark:text-gray-400"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={href}
-    >
-        {children}
-    </a>
-);
-
 export default function Footer() {
     return (
         <footer className="flex flex-col items-center justify-center w-full max-w-2xl mx-auto mb-8 mt-12">

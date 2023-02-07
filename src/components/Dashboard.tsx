@@ -24,7 +24,7 @@ const Dashboard = () => {
                     </div>
                 }
                 <button
-                    onClick={() => { signOut(); setLoader(true) }}
+                    onClick={() => { void signOut(); setLoader(true) }}
                     className="rounded-xl bg-white/10 my-auto py-2 px-4 hover:bg-white/20">
                     {
                         loader ?
@@ -39,12 +39,12 @@ const Dashboard = () => {
                     <div className="font-bold text-lg">Get Daily Leetcode Question </div>
                     <div className="flex gap-2">
                         <button
-                            onClick={() => subscribe(session?.user.subscription)}
+                            onClick={() => void subscribe(session?.user.subscription)}
                             className="max-w-xs rounded-md text-center bg-white/10 py-1 px-4 hover:bg-white/20">
                             <h3 className="font-medium">{session?.user.subscription ? "✅ Subscribed" : "✨ Subscribe"}</h3>
                         </button>
                         <button
-                            onClick={() => addTask()}
+                            onClick={() => void addTask()}
                             className="bg-[#DF4C4B] rounded-md text-center py-1 px-4 hover:bg-[#c53727]">
                             <h3 className="font-medium">Add</h3>
                         </button>
@@ -58,7 +58,7 @@ const Dashboard = () => {
             </div>
             <div className="mt-2 p-4 flex justify-end">
                 <button
-                    onClick={() => remove()}
+                    onClick={() => void remove()}
                     className="rounded-xl bg-white/10 px-4 py-2 hover:bg-white/20">
                     <h3 className="text-sm font-medium">Delete Account</h3>
                 </button>

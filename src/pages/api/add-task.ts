@@ -1,9 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { type NextApiRequest, type NextApiResponse } from "next";
+import { type TReqBody } from "../../../utils/types";
 
 const TODOIST_API_ENDPOINT = 'https://api.todoist.com/rest/v2/tasks'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const { access_token_json, question_json: question } = req.body;
+    const { access_token_json, question_json: question } = req.body as TReqBody;
 
     const accessToken = access_token_json.accessToken;
 
@@ -28,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const response = await fetch(TODOIST_API_ENDPOINT, options);
-    const res_json = await response.json();
+    const res_json = await response.json() as { url: string };
 
     res.status(200).json(res_json);
 }

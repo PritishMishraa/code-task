@@ -1,7 +1,7 @@
 import useSWRImmutable from 'swr/immutable';
 
 import fetcher from '../../utils/fetcher';
-import { activeDailyCodingChallengeQuestion } from '../../utils/types';
+import { type activeDailyCodingChallengeQuestion } from '../../utils/types';
 
 const Question = () => {
     const { data } = useSWRImmutable<activeDailyCodingChallengeQuestion>('/api/leetcode-question-of-today', fetcher)

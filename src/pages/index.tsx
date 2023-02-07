@@ -1,15 +1,16 @@
-import { type NextPage } from "next";
-import { signIn, useSession } from "next-auth/react";
 import Head from "next/head";
 import { useState } from "react";
-import Dashboard from "../components/Dashboard";
+import { type NextPage } from "next";
+import { signIn, useSession } from "next-auth/react";
+
 import Footer from "../components/Footer";
-import LoadingSpinner from "../components/SVG/LoadingSpinner";
 import Question from "../components/Question";
 import Todoist from "../components/SVG/Todoist";
+import Dashboard from "../components/Dashboard";
+import LoadingSpinner from "../components/SVG/LoadingSpinner";
 
 const Home: NextPage = () => {
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
   const [loader, setLoader] = useState(false)
 
   return (
@@ -29,7 +30,10 @@ const Home: NextPage = () => {
             <Dashboard />
             :
             <button
-              onClick={() => { signIn('todoist'); setLoader(true) }}
+              onClick={() => {
+                void signIn('todoist')
+                setLoader(true)
+              }}
               className="mt-16 max-w-xs rounded-xl bg-white/10 px-4 py-2 text-white hover:bg-white/20">
               {
                 loader ?

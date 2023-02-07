@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { type NextApiRequest, type NextApiResponse } from 'next';
 
 import { prisma } from '../../server/db';
-import { activeDailyCodingChallengeQuestion } from '../../../utils/types';
+import { type TquestionOfToday, type activeDailyCodingChallengeQuestion } from '../../../utils/types';
 
 const LEETCODE_API_ENDPOINT = 'https://leetcode.com/graphql'
 const TODOIST_API_ENDPOINT = 'https://api.todoist.com/rest/v2/tasks'
@@ -25,7 +25,7 @@ const fetchDailyCodingChallenge = async () => {
     }
 
     const response = await fetch(LEETCODE_API_ENDPOINT, options)
-    const questionOfToday = await response.json()
+    const questionOfToday = await response.json() as TquestionOfToday
 
     const title = questionOfToday.data.activeDailyCodingChallengeQuestion.question.title
     const difficulty = questionOfToday.data.activeDailyCodingChallengeQuestion.question.difficulty
@@ -61,6 +61,8 @@ const createTodoistTask = async (question: activeDailyCodingChallengeQuestion) =
     const response = await Promise.all(
         users.map(async (user) => {
             const TOKEN = user.accounts[0]?.access_token
+
+            if(!TOKEN) return
 
             const options = {
                 method: 'POST',
