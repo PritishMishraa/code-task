@@ -46,8 +46,8 @@ const Home: NextPage = () => {
         <meta name="twitter:image" content={meta.image} />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-        <div className="max-w-2xl w-full mx-auto flex flex-col items-center justify-center">
-          <h1 className="md:text-7xl text-4xl mt-20 font-extrabold tracking-tight text-white">
+        <div className="max-w-2xl w-full mx-auto flex flex-col items-center justify-center px-2">
+          <h1 className="md:text-7xl text-4xl md:mt-20 mt-10 font-extrabold tracking-tight text-white">
             LeetCode <span className="text-[hsl(280,100%,70%)]">X</span> Todoist
           </h1>
           <Question />
