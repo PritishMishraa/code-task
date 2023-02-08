@@ -7,6 +7,7 @@ import addTask from "../../utils/add-task";
 import subscribe from "../../utils/subscribe";
 import LoadingSpinner from "./SVG/LoadingSpinner";
 import Image from "next/image";
+import User from "./SVG/User";
 
 const Dashboard = () => {
     const { data: session } = useSession()
@@ -23,6 +24,14 @@ const Dashboard = () => {
                         <h1 className="font-bold text-2xl">{session.user.name}</h1>
                     </div>
                 }
+                {session && !session.user.image &&
+                    <div className="flex gap-4 items-center">
+                        <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                            <User />
+                        </div>
+                        <h1 className="font-bold text-2xl">{session.user.name}</h1>
+                    </div>
+                }
                 <button
                     onClick={() => { void signOut(); setLoader(true) }}
                     className="rounded-xl bg-white/10 my-auto py-2 px-4 hover:bg-white/20">
@@ -35,8 +44,8 @@ const Dashboard = () => {
             </div>
             <hr className="w-full border-gray-600 border-l" />
             <div className="mt-2 p-4">
-                <div className="flex justify-between text-start items-center">
-                    <div className="font-bold text-lg">Get Daily Leetcode Question </div>
+                <div className="flex flex-col md:flex-row justify-between text-start items-center">
+                    <div className="font-bold mb-2 md:mb-0 text-lg">Get Daily Leetcode Question </div>
                     <div className="flex gap-2">
                         <button
                             onClick={() => void subscribe(session?.user.subscription)}
@@ -51,9 +60,13 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            <div className="mt-2 p-4">
+            <div className="mt-1 p-4">
                 <div className="flex justify-between text-start items-center">
-                    <div className="text-gray-400 italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit eveniet dignissimos nemo? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, natus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, iste?</div>
+                    <div className="text-gray-400">
+                        <p>• Subscribe to receive the daily LeetCode Question on your Todoist daily tab. You can cancel your subscription at any time. (To view the difference after subscribing, refresh the page.)</p>
+                        <br />
+                        <p>• To receive the daily LeetCode question in your Todoist daily tab, RIGHT NOW, click Add.</p>
+                    </div>
                 </div>
             </div>
             <div className="mt-2 p-4 flex justify-end">
