@@ -16,7 +16,7 @@ const Home: NextPage = () => {
   const meta = {
     title: 'Code Task',
     description: `Automating LeetCoding`,
-    image: 'https://code-taskk.vercel.app/codetaskk-banner.png',
+    image: 'https://codetask.vercel.app/codetask-banner.png',
     type: 'website',
   };
 
@@ -32,8 +32,8 @@ const Home: NextPage = () => {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
-        <meta property="og:url" content="https://code-taskk.vercel.app" />
-        <link rel="canonical" href="https://code-taskk.vercel.app" />
+        <meta property="og:url" content="https://codetask.vercel.app" />
+        <link rel="canonical" href="https://codetask.vercel.app" />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Pritish Mishra" />
         <meta property="og:description" content={meta.description} />
