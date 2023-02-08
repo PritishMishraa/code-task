@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="screenshot.png">
+</div>
+
 # Code Task
 
 Automating LeetCoding
