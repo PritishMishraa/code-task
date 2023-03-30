@@ -45,31 +45,22 @@ const Dashboard = () => {
             <hr className="w-full border-gray-600 border-l" />
             <div className="mt-2 p-4">
                 <div className="flex flex-col md:flex-row justify-between text-start items-center">
-                    <div className="font-bold mb-2 md:mb-0 text-lg">Get Daily Leetcode Question </div>
+                    <div className="font-bold mb-2 md:mb-0 text-xl">Get Daily Leetcode Question </div>
                     <div className="flex gap-2">
                         <button
                             onClick={() => void subscribe(session?.user.subscription)}
                             className="max-w-xs rounded-md text-center bg-white/10 py-1 px-4 hover:bg-white/20">
-                            <h3 className="font-medium">{session?.user.subscription ? "✅ Subscribed" : "✨ Subscribe"}</h3>
+                            <h3 className="text-lg font-medium">{session?.user.subscription ? "✅ Subscribed" : "✨ Subscribe"}</h3>
                         </button>
                         <button
                             onClick={() => void addTask()}
                             className="bg-[#DF4C4B] rounded-md text-center py-1 px-4 hover:bg-[#c53727]">
-                            <h3 className="font-medium">Add</h3>
+                            <h3 className="text-lg font-medium">Add</h3>
                         </button>
                     </div>
                 </div>
             </div>
-            <div className="mt-1 p-4">
-                <div className="flex justify-between text-start items-center">
-                    <div className="text-gray-400">
-                        <p>• Subscribe to receive the daily LeetCode Question on your Todoist daily tab. You can cancel your subscription at any time. (To view the difference after subscribing, refresh the page.)</p>
-                        <br />
-                        <p>• To receive the daily LeetCode question in your Todoist daily tab, RIGHT NOW, click Add.</p>
-                    </div>
-                </div>
-            </div>
-            <div className="mt-2 p-4 flex justify-end">
+            <div className="mt-12 p-4 flex justify-end">
                 <button
                     onClick={() => void remove()}
                     className="rounded-xl bg-white/10 px-4 py-2 hover:bg-white/20">
