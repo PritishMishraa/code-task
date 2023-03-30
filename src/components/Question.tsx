@@ -11,7 +11,7 @@ const Question = () => {
     const difficulty = new String(data?.difficulty)
 
     return (
-        <div className="max-w-2xl w-full rounded-xl mt-16 bg-white/5 p-4">
+        <div className="max-w-2xl w-full rounded-xl mt-4 bg-white/5 p-4">
             <div className="flex justify-between">
                 <a href={link} target="_blank" rel="noopener noreferrer" className="font-bold text-white hover:underline underline-offset-8">{title.toString() === 'undefined' ? '' : title}</a>
                 <h1 className="font-bold text-white">{difficulty.toString() === 'undefined' ? '' : difficulty}</h1>

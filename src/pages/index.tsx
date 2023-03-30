@@ -8,6 +8,7 @@ import Question from "../components/Question";
 import Todoist from "../components/SVG/Todoist";
 import Dashboard from "../components/Dashboard";
 import LoadingSpinner from "../components/SVG/LoadingSpinner";
+import Announcement from "../components/Announcement";
 
 const Home: NextPage = () => {
   const { data: session } = useSession()
@@ -50,6 +51,7 @@ const Home: NextPage = () => {
           <h1 className="md:text-7xl text-4xl md:mt-20 mt-10 font-extrabold tracking-tight text-white">
             LeetCode <span className="text-[hsl(280,100%,70%)]">X</span> Todoist
           </h1>
+          <Announcement />
           <Question />
           {session ?
             <Dashboard />
