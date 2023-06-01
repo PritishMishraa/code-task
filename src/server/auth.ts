@@ -27,7 +27,7 @@ declare module "next-auth" {
   }
 
   interface User {
-    subscription: boolean
+    subscription: boolean;
   }
 }
 
@@ -42,11 +42,11 @@ export const authOptions: NextAuthOptions = {
     session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
-        session.user.subscription = user.subscription
+        session.user.subscription = user.subscription;
         // session.user.role = user.role; <-- put other properties on the session here
       }
       return session;
-    }
+    },
   },
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -56,8 +56,8 @@ export const authOptions: NextAuthOptions = {
       authorization: {
         url: "https://todoist.com/oauth/authorize",
         params: { scope: "data:read_write" },
-      }
-    })
+      },
+    }),
   ],
 };
 
